@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Style Bookshelf
+* source:	https://sketchfab.com/3d-models/low-poly-style-bookshelf-6d3e4ffc8e71427fb8ec52c5be8b576d
+* author:	Digitalis Reality (https://sketchfab.com/digitalisreality)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Style Bookshelf" (https://sketchfab.com/3d-models/low-poly-style-bookshelf-6d3e4ffc8e71427fb8ec52c5be8b576d) by Digitalis Reality (https://sketchfab.com/digitalisreality) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

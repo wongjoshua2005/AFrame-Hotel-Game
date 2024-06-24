@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly, Old-Style Wall Clock
+* source:	https://sketchfab.com/3d-models/low-poly-old-style-wall-clock-527f7fcd3c14447d8fa30d4c641b483c
+* author:	itslerm (https://sketchfab.com/itslerm)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly, Old-Style Wall Clock" (https://sketchfab.com/3d-models/low-poly-old-style-wall-clock-527f7fcd3c14447d8fa30d4c641b483c) by itslerm (https://sketchfab.com/itslerm) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

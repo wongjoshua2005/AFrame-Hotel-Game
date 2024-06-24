@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tv with stand
+* source:	https://sketchfab.com/3d-models/tv-with-stand-031c144e6de846fb9e86ad78aac1fba2
+* author:	AnnPiskacov (https://sketchfab.com/AndreaPiskacova)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tv with stand" (https://sketchfab.com/3d-models/tv-with-stand-031c144e6de846fb9e86ad78aac1fba2) by AnnPiskacov (https://sketchfab.com/AndreaPiskacova) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

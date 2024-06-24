@@ -1,0 +1,788 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
+    <script src="human_pink.js"></script>
+    <script src="human_blue.js"></script>
+    <script src="cloud.js"></script>
+    <script src="script.js"></script>
+    <script src="sign.js"></script>
+    <script src="screen.js"></script>
+    <script src="kinema.js"></script>
+  </head>
+  <body>
+    <a-scene physics="debug: false">
+      <!-- Loads The A-Plane -->
+      <!-- Floor Texture -->
+      <a-plane static-body side="double" position="0 0 -4" rotation="-90 0 0" width="35" height="35" color="#ffa54f" repeat="10 10" material="color: #d79c65; src: #hotel_floor" geometry=""></a-plane>
+      </a-entity>
+
+      <!-- Outside Path -->
+      <a-plane static-body side="double" position="0 0 30.994" rotation="-90 0 0" width="35" height="35" repeat="1.5 1.5" material="repeat: 5 10; color: #ffffff; src:#cobble_texture" geometry="" scale="0.2 1 0.2"></a-plane>
+
+      <!-- Grass -->
+      <a-plane static-body position="0 -0.05 0" rotation="-90 0 0" side="double" width="100" height="100" color="	#ffa54f" repeat="30 30" material="color: #4fff52; src: #grass" geometry="width: 100; height: 100" scale="2.6 2.5 1.5"></a-plane>
+      
+      <!-- Loads all the image assets -->
+      <a-asset preload>
+        <!-- Images -->
+        <img id="grass" src="grass.jpg">
+        <img id="sky" src="sky.jpg">
+        <img id="wood" src="wood.jpg">
+        <img id="leaves" src="leaves.jpg">
+        <img id="hotel_texture" src="hotel_texture.jpg">
+        <img id="carpet" src="carpet.png">
+        <img id="windows_screen" src="windows11.png">
+        <img id="building" src="building.jpg">
+        <img id="commercial1" src="commercial1.png">
+        <img id="commercial2" src="commercial2.png">
+        <img id="commercial3" src="commercial3.png">
+        <img id="commercial4" src="commercial4.png">
+        <img id="commercial5" src="commercial5.png">
+        <img id="keyboard" src="keyboard.png">
+        <img id="Days_Inn_Logo" src="Days_Inn_Logo.png">
+        <img id="hotel_floor" src="floor_texture.jpg">
+        <img id="cobble_texture" src="cobble_texture.jpg">
+        <img id="star" src="Star.png">
+
+        <!-- Interior Models -->
+        <a-asset-item id="bookshelf" src="bookshelf/scene.gltf"></a-asset-item>
+        <a-asset-item id="books" src="book_stack/scene.gltf"></a-asset-item>
+        <a-asset-item id="clock" src="wall_clock/scene.gltf"></a-asset-item>
+        <a-asset-item id="tv" src="tv/scene.gltf"></a-asset-item>
+
+        <!-- Exterior Models -->
+        <a-asset-item id="trees" src="low_poly_tree/scene.gltf"></a-asset-item>
+      </a-asset>
+
+      <!-- Cursor -->
+      <a-entity id="cameraRig" movement-controls="fly: true; speed: 0.7" position="0 1.6 0">
+          <a-camera id="camera" kinema-body="radius: 0.8">
+            <a-cursor raycaster="objects: [interact]">
+              <a-text id="starRating" value="Hotel Rating: 0 out of 5 stars!" side="double" position="1.5 2.25 -1.905"></a-text>
+              <a-text id="Time" value="Time:" side="double" position="-4.25 2.25 -1.905"></a-text>
+              <!-- List of Tasks For The Lobby -->
+              <a-text id="Tasks" value="Tasks" side="double" position="-4.15 1.5 -1.905"></a-text>
+              <a-text id="Task_1" value="1. Turn On All The Lamps" side="double" position="-4.35 1.25 -1.905"></a-text>
+              <a-text id="Task_2" value="2. Give The Hotel Guests Their Room Key" side="double" position="-4.35 1 -1.905"></a-text>
+              <a-text id="Task_3" value="3. Help The Hotel Guests (Hint: Bookshelf)" side="double" position="-4.35 0.75 -1.905"></a-text>
+              <a-text id="Task_4" value="4. FINSIH ALL TASKS WITHIN 100 SECONDS TO EARN FIVE STARS!" side="double" position="-4.35 0.5 -1.905"></a-text>
+            </a-cursor>
+          </a-camera>
+      </a-entity>
+      
+      <!-- Hotel World -->      
+      <a-entity id="Hotel World">
+      <!-- Lobby -->      
+      <a-entity id="interior_building">
+        <!-- Front Walls -->  
+        <a-entity id="front_walls">
+          <a-box static-body position="-10.50542 2.5 13.64233" depth="35" height="5" width="0.5" rotation="0 90 0" color="#808080" material="color: #997029" geometry="" scale="0.5 1 0.4"></a-box>
+          <a-box static-body position="-4.346 1.512 11.97787" depth="35" height="5" width="0.5" rotation="0 -155 0" color="#808080" material="color: #a4effe; transparent: true" geometry="" scale="0.5 0.6 0.1"></a-box>
+          <a-box static-body position="4.3733 1.51155 11.94896" depth="35" height="5" width="0.5" rotation="0 155 0" color="#808080" material="color: #a4effe; transparent: true" geometry="" scale="0.5 0.6 0.1"></a-box>
+          <a-box static-body position="-0.12308 4.00061 13.62791" depth="35" height="5" width="0.5" rotation="0 90 0" color="#808080" material="color: #997029" geometry="" scale="0.5 0.4 0.21"></a-box>
+          <a-box static-body position="10.529 2.5 13.62586" depth="35" height="5" width="0.5" rotation="0 90 0" color="#808080" material="color: #997029" geometry="" scale="0.5 1 0.4"></a-box>
+        </a-entity>
+
+        <!-- Side Wall 1 -->  
+        <a-entity id="side_wall_one">
+          <a-box static-body position="-17.5 2.5 -4" depth="35" height="5" width="0.5" rotation="" material="color: #997029" geometry=""></a-box>    
+        </a-entity>
+
+        <a-entity id="side_wall_two">
+          <a-box static-body position="17.5 2.5 -4" depth="35" height="5" width="0.5" rotation="" material="color: #997029" geometry=""></a-box>     
+        </a-entity>
+
+        <a-entity id="back_wall">
+          <a-box static-body position="0 2.5 -21.5" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #997029" geometry=""></a-box>  
+        </a-entity>
+
+      <!-- All Hotel Floor Walls -->
+      <a-box static-body repeat="3 3" position="-0.059 17.58435 -4.055" width="" height="" depth="" rotation="0 0.206 0" geometry="width: 1; height: 1; depth: 1" visible="" side="double" color="#808080" material="color: #997029" scale="35.5 25 35.52"></a-box>
+
+      <!-- Windows -->
+     <a-entity id="small_windows" position="-6.976 7.006 16.503">
+       <a-entity id="column1">
+        <a-entity id="small_window1" position="-3.21241 0.61678 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-bodywidth="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+          <a-entity id="small_window2" position="-3.21241 4.751 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window3" position="-3.21241 8.765 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window4" position="-3.21241 13.441 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window5" position="-3.21241 18.418 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+       </a-entity>
+       <a-entity id="column2">
+          <a-entity id="small_window1" position="7.04158 0.61678 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window2" position="7.04158 4.751 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window3" position="7.04158 8.765 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+        <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window4" position="7.04158 13.441 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window5" position="7.04158 18.418 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+       </a-entity>
+       <a-entity id="column3">
+         <a-entity id="small_window1" position="17.3526 0.61678 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window2" position="17.3526 4.751 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window3" position="17.3526 8.765 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window4" position="17.3526 13.441 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+         <a-entity id="small_window5" position="17.3526 18.418 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="1 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-1.51491 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="1.51 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 1.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 1.015 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+       </a-entity>
+      </a-entity>
+
+      <a-entity id="lobby_windows">
+        <a-entity id="lobby_window_1" position="-9.15378 2.36507 16.6311">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+        <a-entity id="lobby_window_2" position="10.42286 2.36507 16.6311">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+        <a-entity id="lobby_window_3" position="-14.485 2.36507 1.77829" rotation="0 90 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+        <a-entity id="lobby_window_4" position="-14.485 2.36507 -13.01774" rotation="0 90 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+        <a-entity id="lobby_window_5" position="20.54959 2.36507 2.5038" rotation="0 90 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+
+        <a-entity id="lobby_window_6" position="20.55 2.36507 -13.02" rotation="0 90 0">
+           <a-box static-body width="3" height="3" depth="0.1" position="0 0 -3" material="transparent: true; opacity: 0.5; color: #00e1ff" geometry="" scale="2 1 8"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-3.00214 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="3.02392 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 0 -3" material="color: black" geometry="" scale="0.01 2.01 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 1.51133 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+         <a-box static-body width="3" height="3" depth="0.1" position="-0.00078 -1.51159 -3" material="color: black" geometry="" scale="0.01 2.03 10" rotation="0 0 90"></a-box>
+          <a-box static-body width="3" height="3" depth="0.1" position="0.02992 0 -3" material="color: black" geometry="" scale="0.01 1 10"></a-box>
+         </a-entity>
+      </a-entity>
+
+      <!-- Hotel Pillars & Outlines -->
+      <a-entity id="Exterior_Pillars">
+        <a-box static-body position="-17 13.685 13" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.5 1 0.4"></a-box>
+        <a-box static-body position="17 13.6849 13" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.5 1 0.4"></a-box>
+        <a-box static-body position="-17 13.685 -21" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.5 1 0.4"></a-box>
+        <a-box static-body position="17 13.685 -21" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.5 1 0.4"></a-box>
+      </a-entity>
+
+      <a-entity id="Interior_Pillars">
+        <a-box static-body id="interior_pillar1" position="-7.488 2.535 -5.459" depth="5" height="30" width="5" rotation="0 90 0" material="color: #997029" geometry="" scale="0.5 0.169 0.4"></a-box>
+        <a-box static-body id="interior_pillar2" position="-7.488 2.53453 8.219" depth="5" height="30" width="5" rotation="0 90 0" material="color: #997029" geometry="" scale="0.5 0.169 0.4"></a-box>
+        <a-box static-body id="interior_pillar3" position="6.18439 2.53453 -5.45941" depth="5" height="30" width="5" rotation="0 90 0" material="color: #997029" geometry="" scale="0.5 0.169 0.4"></a-box>
+        <a-box static-body id="interior_pillar4" position="6.184 2.53453 8.219" depth="5" height="30" width="5" rotation="0 90 0" material="color: #997029" geometry="" scale="0.5 0.169 0.4"></a-box>
+        <a-box static-body id="interior_pillar_outline1" position="6.184 0.741 8.219" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.51 0.05 0.41"></a-box>
+        <a-box static-body id="interior_pillar_outline2" position="-7.488 0.741 8.219" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.51 0.05 0.41"></a-box>
+        <a-box static-body id="interior_pillar_outline3" position="6.18439 0.741 -5.45941" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.51 0.05 0.41"></a-box>
+        <a-box static-body id="interior_pillar_outline4" position="-7.488 0.741 -5.459" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.51 0.05 0.41"></a-box>
+      </a-entity>
+        <!-- Outlines -->
+        <!-- Front -->
+        <a-box static-body position="-0.00233 5.16252 13.57368" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 9.93012 13.57368" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 13.53416 13.57368" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 18.01279 13.57368" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 22.97739 13.57368" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        
+        <!-- Side 1 -->
+        <a-box static-body position="17.683 5.16252 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+
+        <a-box static-body position="17.683 13.51742 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+
+        <a-box static-body position="17.683 22.97739 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+
+
+        <!-- Side 2 -->
+        <a-box static-body position="-17.683 5.16252 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+
+        <a-box static-body position="-17.683 13.53416 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+
+        <a-box static-body position="-17.683 22.97739 -4.036" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        
+        
+        <!-- Back -->
+        <a-box static-body position="-0.00233 5.16252 -22" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 9.93012 -22" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 13.53416 -22" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 18.01279 -22" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.00233 22.97739 -22" depth="5" height="30" width="5" rotation="0 90 0" material="color: #6A1B0A" geometry="" scale="0.1 0.01 7"></a-box>
+      </a-entity>
+
+      <!-- Hotel Interior Outlines-->
+      <a-entity id="Hotel Interior Outlines" position="">
+        <a-box static-body position="17.352 0.226 -3.867" depth="5" height="30" width="5" rotation="0 180 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="17.35232 4.81699 -3.86695" depth="5" height="30" width="5" rotation="0 180 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-17.352 4.81699 -3.86695" depth="5" height="30" width="5" rotation="0 180 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-17.352 0.226 -3.86695" depth="5" height="30" width="5" rotation="0 180 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.0393 4.81699 -21.31618" depth="5" height="30" width="5" rotation="0 90 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.039 0.226 -21.316" depth="5" height="30" width="5" rotation="0 90 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="-0.039 4.81699 13.46462" depth="5" height="30" width="5" rotation="0 90 90" material="color: #551616" geometry="" scale="0.1 0.01 7"></a-box>
+        <a-box static-body position="10.05 0.226 13.465" depth="5" height="30" width="5" rotation="0 90 90" material="color: #551616" geometry="" scale="0.1 0.01 2.5"></a-box>
+        <a-box static-body position="-10.04738 0.226 13.465" depth="5" height="30" width="5" rotation="0 90 90" material="color: #551616" geometry="" scale="0.1 0.01 2.5"></a-box>
+      </a-entity>
+ww
+      <!-- Roof -->
+      <a-entity id="roof" position="" depth="" height="" width="" rotation="">
+        <a-box static-body position="-0.02898 29.41708 -3.9953" depth="5" height="30" width="5" rotation="0 180 0" material="color: #6A1B0A" geometry="" scale="7.21 0.05 7.3"></a-box>
+      </a-entity>
+      <!-- All Furniture -->
+      <!-- Interior Furniture -->
+
+      <!-- Elevator -->
+      <!--
+      <a-box static-body id="elevator" position="0 0 0" depth="5" height="5" width="5" rotation="0 0 0" material="color: #6A1B0A" geometry="" scale="7.21 0.05 7.3"></a-box>
+      -->
+
+
+        
+      <!-- Television -->
+      <a-gltf-model static-body id="tv1" src="#tv" position="16.29485 0 2.418" scale="2 2 2" rotation="0 90 0"></a-gltf-model>
+      <a-gltf-model static-body id="tv2" src="#tv" position="-16.20709 0 1.78812" scale="2 2 2" rotation="0 -90 0"></a-gltf-model>
+
+      
+      <!-- Bookshelf -->
+      <a-gltf-model static-body id="bookshelf1" src="#bookshelf" position="16.89593 0.48695 -4.83804" scale="0.003 0.003 0.003" rotation="0 -90 0"></a-gltf-model>
+      <a-gltf-model static-body id="bookshelf2" src="#bookshelf" position="-16.90324 0.48695 -6.21952" scale="0.003 0.003 0.003" rotation="0 90 0"></a-gltf-model>
+
+      <!-- Book Stack -->
+      <a-gltf-model static-body id="books1" src="#books" position="-3.501 1.27701 -18.39923" scale="0.4 0.4 0.4"></a-gltf-model>
+      <a-gltf-model static-body id="books2" src="#books" position="-0.9123 1.27701 -18.39923" scale="0.4 0.4 0.4" rotation="0 200 0"></a-gltf-model>
+      <a-gltf-model static-body id="books3" src="#books" position="3.49569 1.27701 -18.39923" scale="0.4 0.4 0.4" rotation="0 180 0"></a-gltf-model>
+      <a-gltf-model static-body id="books4" src="#books" position="1.36214 1.27701 -18.39923" scale="0.4 0.4 0.4" rotation="0 45 0"></a-gltf-model>
+
+      <!-- Lobby Clock -->
+      <a-gltf-model static-body id="lobby_clock" src="#clock" scale="0.5 0.5 0.5" position="4.968 1.561 -21.215"></a-gltf-model>
+        
+      <!-- Red Circle Carpet -->
+      <a-entity id="carpet">
+        <a-cylinder static-body repeat="2 2" position="0 0.017 -9.223" color="crimson" height="3" radius="1.5" material="src: #carpet" geometry="" scale="3 0.01 3"></a-cylinder>
+      </a-entity>
+
+      <!-- Receiptionist Desk -->
+      <a-entity id="receptions_desk" position="-0.09676 0.51013 -18.26989">
+        <a-box static-body position="7.247 0 -1.25" depth="35" height="5" width="0.5" rotation="0 180 0" material="color: #703600" geometry="" scale="1 0.2 0.1"></a-box>
+        <a-box static-body position="7.247 0.51143 -1.25" depth="35" height="5" width="0.5" rotation="0 180 0" material="color: #ab5403" geometry="" scale="1.25 0.005 0.105"></a-box>
+        <a-box static-body position="" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #703600" geometry="" scale="2 0.2 0.4"></a-box>
+        <a-box static-body position="0 0.511 0" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ab5403" geometry="" scale="2.35 0.005 0.4"></a-box>
+        <a-box static-body position="-7.24716 0 -1.25" depth="35" height="5" width="0.5" rotation="0 180 0" material="color: #703600" geometry="" scale="1 0.2 0.1"></a-box>
+        <a-box static-body position="-7.24716 0.511 -1.25" depth="35" height="5" width="0.5" rotation="0 180 0" material="color: #ab5403" geometry="" scale="1.25 0.005 0.105"></a-box>
+      </a-entity>
+
+      <!-- Chairs -->
+      <a-entity id="chair" rotation="0 90 0" position="-1.92555 0 -23.21951">
+        <a-box static-body position="-4.078 0.246 0" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-4.07782 0.24628 -0.50341" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.5 0.246 -0.503" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.49839 0.246 0.005" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.8423 0.50803 -0.25706" depth="35" height="5" width="0.5" rotation="0 180 90" material="color: #101c42" geometry="" scale="0.05 0.15 0.02"></a-box>
+        <a-box static-body position="-3.492 1.019 -0.247" depth="35" height="5" width="0.5" rotation="" material="color: #0f2771" geometry="" scale="0.1 0.2 0.02"></a-box>
+      </a-entity>
+
+      <a-entity id="chair2" rotation="0 90 0" position="2.80468 0 -23.33427">
+        <a-box static-body position="-4.078 0.246 0" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-4.07782 0.24628 -0.50341" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.5 0.246 -0.503" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.49839 0.246 0.005" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #ffffff" geometry="" scale="0.1 0.1 0.001"></a-box>
+        <a-box static-body position="-3.8423 0.50803 -0.25706" depth="35" height="5" width="0.5" rotation="0 180 90" material="color: #101c42" geometry="" scale="0.05 0.15 0.02"></a-box>
+        <a-box static-body position="-3.4916 1.0189 -0.24727" depth="35" height="5" width="0.5" rotation="" material="color: #0f2771" geometry="" scale="0.1 0.2 0.02"></a-box>
+      </a-entity>
+
+      <!-- Lobby Tables -->
+      <a-entity id="table" position="-11.0217 0.23688 -0.84155" rotation="0 14.999999999999998 0">
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position=""></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.50065 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.25389 0 0.5" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.24645" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0.246" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.254 0 0" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.2433 0.24585" scale="0.6 0.02 0.6"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.01421 0.24148" scale="0.5 0.02 0.5"></a-box>
+      </a-entity>
+
+      <a-entity id="table2" position="-10.86238 0.23513 4.15128">
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position=""></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.50065 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.25389 0 0.5" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.24645" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0.246" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.254 0 0" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.2433 0.24585" scale="0.6 0.02 0.6"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.01421 0.24148" scale="0.5 0.02 0.5"></a-box>
+      </a-entity>
+
+      <!-- Lobby Couch -->
+      <a-entity id="couch" position="-11.16055 0 3.54809" rotation="0 270 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.30075 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+      <a-entity id="couch2" position="-11.20541 0 -1.76215" rotation="0 -55 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.301 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+      <a-entity id="couch3" position="-13.58627 0 7.48608" rotation="0 220 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.301 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+
+      <!-- Right Side Couches -->
+    <a-entity id="right_table" position="8.35523 0.23154 -0.47329" rotation="0 -14.999999999999998 0">
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position=""></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.50065 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.25389 0 0.5" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.24645" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0.246" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.254 0 0" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.2433 0.24585" scale="0.6 0.02 0.6"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.01421 0.24148" scale="0.5 0.02 0.5"></a-box>
+      </a-entity>
+
+      <a-entity id="right_table2" position="8.21992 0.22724 4.39553">
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position=""></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.50065 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.5"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.25389 0 0.5" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="0 0 0.24645" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.5 0 0.246" rotation="90 0 0"></a-box>
+        <a-box static-body material="color: #000000" geometry="" scale="0.05 0.5 0.05" position="-0.254 0 0" rotation="0 0 90"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.2433 0.24585" scale="0.6 0.02 0.6"></a-box>
+        <a-box static-body material="color: #ad6b10" geometry="" position="-0.25056 0.01421 0.24148" scale="0.5 0.02 0.5"></a-box>
+      </a-entity>
+
+      <!-- Right Lobby Couch -->
+      <a-entity id="right_couch" position="8.00837 0 0.70174" rotation="0 90 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.30075 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+      <a-entity id="right_couch2" position="10.6422 0 -3.25001" rotation="0 40 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.301 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+      <a-entity id="right_couch3" position="7.96492 0 5.61303" rotation="0 119.99999999999999 0">
+        <a-box static-body position="0 0.50082 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-3 0.501 0" width="0.25" height="" depth="" rotation="" color="#8B0000" material="" geometry="height: 1; depth: 1"></a-box>
+        <a-box static-body position="-1.50052 0.74888 -0.5" rotation="0 90 0" width="0.25" height="" depth="" color="#8B0000" material="" geometry="height: 1; depth: 1" scale="1 1.5 3.25"></a-box>
+        <a-box static-body position="-1.5 0.301 0" width="0.5" height="" depth="" rotation="0 90 90" color="#8B0000" material="" geometry="height: 1; depth: 3" scale="1.2 1 1"></a-box>
+      </a-entity>
+
+      <!-- Lamp -->
+      <a-entity id="lobby_lamps" position="">
+        <a-entity id="lamp1" position="-11.95961 0.24576 8.64679">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light1" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+        <a-entity id="lamp2" position="-11.96 0.24576 -5.51617">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light2" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+        <a-entity id="lamp3" position="7.893 0.24576 8.64679">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light3" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+        <a-entity id="lamp4" position="9.00251 0.24576 -4.50396">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light4" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+        <a-entity id="lamp5" position="-8.104 0.24576 -20.523">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light5" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+        <a-entity id="lamp6" position="7.92991 0.24576 -20.523">
+          <a-cylinder static-body position="0 1.31876 0" height="3" radius="0.3" material="color: #000000" geometry="radius: 0.1"></a-cylinder>
+          <a-cone static-body id="light6" interact color="#3A5F0B" position="0 2.54552 0" radius-bottom="2" radius-top="1" material="color: #fcfcfc" geometry="radiusBottom: 0.5; radiusTop: 0.15"></a-cone>
+          <a-cone static-body color="#3A5F0B" position="0 -0.19069 0" radius-bottom="2" radius-top="1" material="color: #000000" geometry="radiusBottom: 0.25; radiusTop: 0.1" scale="1 0.1 1"></a-cone>
+        </a-entity>
+      </a-entity>
+        
+      <!-- Laptops For Lobby-->
+      <a-entity id="laptop" position="9.76443 0.7978 -19.24786" rotation="0 180 0">
+        <a-box static-body position="7.247 0.249 -1.012" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #625e5b" geometry="" scale="1 0.005 0.015"></a-box>
+        <a-box static-body position="7.24721 0.25957 -1.00076" depth="35" height="5" width="0.5" rotation="" material="color: #ffffff; src: #keyboard" geometry="" scale="1 0.005 0.012"></a-box>
+        <a-box static-body position="7.247 0.511 -1.24421" depth="35" height="5" width="0.5" rotation="90 90 90" material="color: #68635e; src: #windows_screen" geometry="" scale="0.95 0.005 0.013"></a-box>
+        <a-box static-body position="7.247 0.511 -1.25" depth="35" height="5" width="0.5" rotation="0 90 90" material="color: #68635e" geometry="" scale="1 0.005 0.015"></a-box>
+      </a-entity>
+      <a-entity id="laptop2" position="4.98889 0.798 -19.248" rotation="0 180 0">
+        <a-box static-body position="7.247 0.249 -1.012" depth="35" height="5" width="0.5" rotation="0 90 0" material="color: #625e5b" geometry="" scale="1 0.005 0.015"></a-box>
+        <a-box static-body position="7.24721 0.25957 -1.00076" depth="35" height="5" width="0.5" rotation="" material="color: #ffffff; src: #keyboard" geometry="" scale="1 0.005 0.012"></a-box>
+        <a-box static-body position="7.247 0.511 -1.24421" depth="35" height="5" width="0.5" rotation="90 90 90" material="color: #68635e; src: #windows_screen" geometry="" scale="0.95 0.005 0.013"></a-box>
+        <a-box static-body position="7.247 0.511 -1.25" depth="35" height="5" width="0.5" rotation="0 90 90" material="color: #68635e" geometry="" scale="1 0.005 0.015"></a-box>
+      </a-entity>
+        
+      <!-- Outside Furniture -->
+        
+      <!-- Hotel Path Items -->
+        
+      <a-entity id="cover">
+         <a-box static-body position="0.029 3.4 16.937" rotation="0 90 14.999999999999998" color="#4CC3D9" material="color: #e60505" geometry="" scale="7 0.1 10"></a-box>
+        <a-cylinder static-body position="-3.68714 1.43158 18.72763" radius="0.1" height="1.5" color="#FFC65D" material="" geometry="" scale="1 2 1"></a-cylinder>
+        <a-cylinder static-body position="-3.68714 0.699 18.72763" radius="0.1" height="1.5" color="#FFC65D" material="color: #022255" geometry="radius: 0.15" scale=""></a-cylinder>
+        <a-cylinder static-body position="3.68 1.432 18.728" radius="0.1" height="1.5" color="#FFC65D" material="" geometry="" scale="1 2 1"></a-cylinder>
+        <a-cylinder static-body position="3.68 0.699 18.728" radius="0.1" height="1.5" color="#FFC65D" material="color: #022255" geometry="radius: 0.15" scale=""></a-cylinder>
+      </a-entity>
+
+      <!-- Trees -->
+        <a-gltf-model static-body id="tree1" src="#trees" position="-20.44284 -0.36121 39.64644" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree2" src="#trees" position="9.17306 -0.36121 25.47538" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree3" src="#trees" position="-23.37966 -0.36121 23.19377" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree4" src="#trees" position="4.45792 -0.36121 54.37879" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree5" src="#trees" position="-31.67596 -0.36121 52.96274" scale="0.018 0.018 0.018"></a-gltf-model>
+        <!-- bookmark -->
+        <a-gltf-model static-body id="tree6" src="#trees" position="15.38414 -0.36121 66.62756" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree7" src="#trees" position="-42.14577 -0.36121 7.81482" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree8" src="#trees" position="22.58231 -0.36121 38.613" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree9" src="#trees" position="-44.86345 -0.36121 34.85172" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree10" src="#trees" position="35.51222 -0.36121 11.54805" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree11" src="#trees" position="-22.06922 -0.36121 69.48157" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree12" src="#trees" position="23.08687 -0.36121 -2.85536" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree13" src="#trees" position="-39.2375 -0.36121 -18.31365" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree14" src="#trees" position="-59.4388 -0.36121 -3.44011" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree15" src="#trees" position="-60.84376 -0.36121 -37.2299" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree16" src="#trees" position="-36.53623 -0.36121 -37.37919" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree17" src="#trees" position="-17.42476 -0.36121 -56.91448" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree18" src="#trees" position="-13.24729 -0.36121 -34.2288" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree19" src="#trees" position="5.89498 -0.36121 -45.28227" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree20" src="#trees" position="25.22174 -0.36121 -33.65626" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree21" src="#trees" position="52.41455 -0.36121 -36.72301" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree22" src="#trees" position="66.95504 -0.36121 -16.87667" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree23" src="#trees" position="45.21889 -0.36121 -14.81359" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree24" src="#trees" position="46.77019 -0.36121 39.64644" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree25" src="#trees" position="55.29085 -0.36121 9.74414" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree26" src="#trees" position="43.47763 -0.36121 63.47787" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree27" src="#trees" position="-56.63169 -0.36121 66.72343" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree28" src="#trees" position="-72.01411 -0.36121 39.64644" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree29" src="#trees" position="-83.94083 -0.36121 10.66474" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree30" src="#trees" position="8.20725 -0.36121 83.86119" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree31" src="#trees" position="-101.14278 -0.36121 39.64644" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree32" src="#trees" position="-107.88905 -0.36121 4.00668" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree33" src="#trees" position="-51.23129 -0.36121 -66.35008" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree34" src="#trees" position="-29.55144 -0.36121 -82.18004" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+        <a-gltf-model static-body id="tree35" src="#trees" position="69.42762 -0.36121 -45.86209" scale="0.018 0.018 0.018"></a-gltf-model>
+        
+      <!-- NPC -->
+      <a-entity interact id="humanTemplate_pink" position="0 -2.24592 20">
+        <a-sphere interact id="head" position="0 1.089 0" radius="0.2" material="" geometry="radius: 0.25"></a-sphere>
+        <a-sphere interact id="eye1" position="-0.05702 1.0894 0.2455" radius="0.2" material="color: #000000" geometry="radius: 0.05"></a-sphere>
+        <a-sphere interact id="eye2" position="0.07014 1.0894 0.245" radius="0.2" material="color: #000000" geometry="radius: 0.05"></a-sphere>
+         <a-box interact id="torso" position="0 0.60959 -0.01026" rotation="" color="pink" material="" geometry="" scale="0.4 0.5 0.4"></a-box>
+         <a-cylinder interact id="leg1" position="-0.12038 0.18063 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1"></a-cylinder>
+         <a-cylinder interact id="leg2" position="0.11133 0.181 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1"></a-cylinder>
+        <a-cylinder interact id="arm1" position="0.24687 0.64552 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1" rotation="0 0 25"></a-cylinder>
+        <a-cylinder interact id="arm2" position="-0.247 0.646 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1" rotation="0 0 -25"></a-cylinder>
+      </a-entity>
+
+      <a-entity interact id="humanTemplate_blue" interact position="0 -2.24592 20">
+        <a-sphere interact id="head" position="0 1.089 0" radius="0.2" material="" geometry="radius: 0.25"></a-sphere>
+        <a-sphere interact id="eye1" position="-0.05702 1.0894 0.2455" radius="0.2" material="color: #000000" geometry="radius: 0.05"></a-sphere>
+        <a-sphere interact id="eye2" position="0.07014 1.0894 0.245" radius="0.2" material="color: #000000" geometry="radius: 0.05"></a-sphere>
+         <a-box interact id="torso" position="0 0.60959 -0.01026" rotation="" color="blue" material="" geometry="" scale="0.4 0.5 0.4"></a-box>
+         <a-cylinder interact id="leg1" position="-0.12038 0.18063 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1"></a-cylinder>
+         <a-cylinder interact id="leg2" position="0.11133 0.181 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1"></a-cylinder>
+        <a-cylinder interact id="arm1" position="0.24687 0.64552 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1" rotation="0 0 25"></a-cylinder>
+        <a-cylinder interact id="arm2" position="-0.247 0.646 0" radius="0.5" height="1.5" color="#000000" material="" geometry="radius: 0.05" scale="1 0.25 1" rotation="0 0 -25"></a-cylinder>
+      </a-entity>
+        
+      <!-- Outside Border -->
+      <a-entity id="large_building" position="">
+        <a-box static-body position="-86.85709 12.306 -21.99044" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="large_building2" position="">
+        <a-box static-body position="58.357 12.30591 -100.57051" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="large_building3" position="">
+        <a-box static-body position="54.62413 12.30591 92.10034" side="double" rotation="0 25 0" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="large_building4" position="">
+        <a-box static-body position="-82.20667 12.30591 -112.27166" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="large_building5" position="">
+        <a-box static-body position="0.44384 12.30591 -76.94553" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="large_building6" position="">
+        <a-box static-body position="-72.46818 12.30591 76.29157" side="double" rotation="0 -25 0" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="15 25 15"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building" position="">
+        <a-box static-body position="-99.59195 9.794 114.17948" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building2" position="">
+        <a-box static-body position="39.43965 10.0811 131.88669" side="double" rotation="0 -90 0" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building3" position="">
+        <a-box static-body position="71.56428 9.794 52.35571" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building4" position="">
+        <a-box static-body position="-116.34164 9.794 15.66182" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building5" position="">
+        <a-box static-body position="96.33746 9.794 -2.38087" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="medium_building6" position="">
+        <a-box static-body position="35.62481 9.794 -69.02367" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+       <a-entity id="medium_building7" position="">
+        <a-box static-body position="-55.51231 9.794 -87.42567" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+       <a-entity id="medium_building8" position="-23.11006 0 29.85554" rotation="0 -25 0">
+        <a-box static-body position="-116.6871 9.794 -38.65782" side="double" rotation="0 -90 0" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 20 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building" position="">
+        <a-box static-body position="-76.42912 7.44676 -58.98791" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building2" position="">
+        <a-box static-body position="-45.2726 7.44676 106.52935" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building3" position="">
+        <a-box static-body position="13.71499 7.44676 -99.28484" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building4" position="">
+        <a-box static-body position="-108.86494 7.44676 69.16355" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building5" position="-33.54129 0 -13.94014" rotation="0 -25 0">
+        <a-box static-body position="80.86542 7.44676 -101.93626" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building6" position="">
+        <a-box static-body position="78.04672 7.44676 20.75828" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+
+      <a-entity id="small_building7" position="">
+        <a-box static-body position="-6.30374 7.44676 94.16118" side="double" rotation="" color="#4CC3D9" material="color: #ffffff; src: #building" geometry="" scale="10 15 10"></a-box>
+      </a-entity>
+        
+
+      <a-sky color="#ECECEC" material="src: #sky"></a-sky>
+    </a-scene>
+  </body>
+</html>

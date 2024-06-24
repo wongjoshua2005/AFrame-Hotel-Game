@@ -1,0 +1,516 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 114,
+      "max": [
+        1.0,
+        1.002761721611023,
+        0.40117406845092773
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1368,
+      "componentType": 5126,
+      "count": 114,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 114,
+      "max": [
+        0.9996351003646851,
+        0.9923677444458008
+      ],
+      "min": [
+        0.0003649890422821045,
+        0.0003649592399597168
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 180,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2736,
+      "componentType": 5126,
+      "count": 196,
+      "max": [
+        0.5496116280555725,
+        0.11712772399187088,
+        1.1180170774459839
+      ],
+      "min": [
+        -0.6055850386619568,
+        -0.11712772399187088,
+        0.40946638584136963
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 5088,
+      "componentType": 5126,
+      "count": 196,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 912,
+      "componentType": 5126,
+      "count": 196,
+      "max": [
+        0.8481124043464661,
+        0.8059813380241394
+      ],
+      "min": [
+        0.0002468228340148926,
+        0.0002468228340148926
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 720,
+      "componentType": 5125,
+      "count": 324,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 7440,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        0.508182168006897,
+        0.014871122315526009,
+        1.086068034172058
+      ],
+      "min": [
+        -0.564155638217926,
+        0.014871122315526009,
+        0.5434966087341309
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 7488,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "min": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 2480,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        0.8050020337104797,
+        0.9997532367706299
+      ],
+      "min": [
+        0.5574095845222473,
+        0.5104118585586548
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 2016,
+      "componentType": 5125,
+      "count": 6,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 7536,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        -0.5790196657180786,
+        0.03315569460391998,
+        0.5397504568099976
+      ],
+      "min": [
+        -0.5847828984260559,
+        0.033155687153339386,
+        0.5252397060394287
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 7584,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        1.255075776640524e-08,
+        1.0,
+        3.781616726428183e-07
+      ],
+      "min": [
+        1.255075776640524e-08,
+        1.0,
+        3.781616726428183e-07
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 2512,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        0.27058500051498413,
+        0.5345093011856079
+      ],
+      "min": [
+        0.2679694890975952,
+        0.5278933048248291
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 2040,
+      "componentType": 5125,
+      "count": 6,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "AnnPiskacov (https://sketchfab.com/AndreaPiskacova)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/tv-with-stand-031c144e6de846fb9e86ad78aac1fba2",
+      "title": "Tv with stand"
+    },
+    "generator": "Sketchfab-15.5.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2064,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2544,
+      "byteOffset": 2064,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 7632,
+      "byteOffset": 4608,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 12240,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "TV_stand",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.467204,
+          0.467204,
+          0.467204,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.92213266510932
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "TV_material",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0748969,
+          0.0748969,
+          0.0748969,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.9832525440295996
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "TV_sreen_material",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "TV_buttom_bloom",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8040408205773457
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "TV bench_TV stand_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "TV_TV material_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "TV_TV_sreen material_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "TV_TV buttom bloom_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12,
+            "TEXCOORD_0": 14
+          },
+          "indices": 15,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "dc2bb5e8e1ef441fab4a054486430067.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.35511455383414e-06,
+        -26.731502532958633,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "TV bench"
+    },
+    {
+      "mesh": 0,
+      "name": "TV bench_TV stand_0"
+    },
+    {
+      "children": [
+        6,
+        7,
+        8
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "TV"
+    },
+    {
+      "mesh": 1,
+      "name": "TV_TV material_0"
+    },
+    {
+      "mesh": 2,
+      "name": "TV_TV_sreen material_0"
+    },
+    {
+      "mesh": 3,
+      "name": "TV_TV buttom bloom_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
